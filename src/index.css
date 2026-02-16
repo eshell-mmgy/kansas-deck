@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/oswald/v53/TK3_WkUHHAIjg75cFRf3bXL8LICs1_FvsUZiYA.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/oswald/v53/TK3_WkUHHAIjg75cFRf3bXL8LICs1xpqsUZiYA.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVI.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4gaVI.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4gaVI.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/opensans/v40/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkaVc.woff2') format('woff2');
+}
+
+@theme {
+  --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+  --font-body: 'Open Sans', system-ui, sans-serif;
+
+  --color-mmgy-red: #E63312;
+  --color-mmgy-red-dark: #C42A0E;
+  --color-mmgy-red-light: #FF4D2E;
+  --color-mmgy-black: #1A1A1A;
+  --color-mmgy-charcoal: #2D2D2D;
+  --color-mmgy-cream: #E8E4DE;
+  --color-mmgy-white: #FFFFFF;
+  --color-mmgy-gray-300: #BBBBBB;
+  --color-mmgy-gray-500: #888888;
+  --color-mmgy-gray-700: #555555;
+}
+
+@layer base {
+  body {
+    @apply bg-mmgy-black text-white m-0 overflow-hidden;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+/* Red shimmer animation for accent text */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-mmgy-red) 0%,
+    var(--color-mmgy-red-light) 25%,
+    var(--color-mmgy-red) 50%,
+    var(--color-mmgy-red-light) 75%,
+    var(--color-mmgy-red) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Glow pulse for red accents */
+@keyframes glow-pulse {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(230, 51, 18, 0.5), 0 0 20px rgba(230, 51, 18, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(230, 51, 18, 0.8), 0 0 40px rgba(230, 51, 18, 0.5);
+  }
+}
+
+.text-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Active dot pulse */
+@keyframes dot-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(230, 51, 18, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(230, 51, 18, 0);
+  }
+}
+
+.dot-pulse {
+  animation: dot-pulse 2s ease-in-out infinite;
+}
+
+/* Pentagon clip path for title slide image */
+.clip-pentagon {
+  clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+}

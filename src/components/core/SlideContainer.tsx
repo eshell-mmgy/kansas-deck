@@ -1,0 +1,164 @@
+import { useState, useEffect, useCallback } from 'react'
+import type { ReactNode } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+
+interface SlideContainerProps {
+  children: ReactNode[]
+}
+
+const smoothEase: [number, number, number, number] = [0.22, 1, 0.36, 1]
+
+const slideVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? '40%' : '-40%',
+    opacity: 0,
+    scale: 0.92,
+    filter: 'blur(10px)',
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: {
+      duration: 0.8,
+      ease: smoothEase,
+    },
+  },
+  exit: (direction: number) => ({
+    x: direction < 0 ? '40%' : '-40%',
+    opacity: 0,
+    scale: 0.92,
+    filter: 'blur(10px)',
+    transition: {
+      duration: 0.6,
+      ease: smoothEase,
+    },
+  }),
+}
+
+export function SlideContainer({ children }: SlideContainerProps) {
+  const [[currentSlide, direction], setSlide] = useState([0, 0])
+  const totalSlides = children.length
+
+  const navigate = useCallback(
+    (newDirection: number) => {
+      const newSlide = currentSlide + newDirection
+      if (newSlide >= 0 && newSlide < totalSlides) {
+        setSlide([newSlide, newDirection])
+      }
+    },
+    [currentSlide, totalSlides]
+  )
+
+  const goToSlide = useCallback(
+    (index: number) => {
+      const dir = index > currentSlide ? 1 : -1
+      setSlide([index, dir])
+    },
+    [currentSlide]
+  )
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      switch (e.key) {
+        case 'ArrowRight':
+        case ' ':
+        case 'Enter':
+          e.preventDefault()
+          navigate(1)
+          break
+        case 'ArrowLeft':
+        case 'Backspace':
+          e.preventDefault()
+          navigate(-1)
+          break
+        case 'Home':
+          e.preventDefault()
+          setSlide([0, -1])
+          break
+        case 'End':
+          e.preventDefault()
+          setSlide([totalSlides - 1, 1])
+          break
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [navigate, totalSlides])
+
+  // Touch/swipe support
+  useEffect(() => {
+    let touchStartX = 0
+    let touchEndX = 0
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartX = e.changedTouches[0].screenX
+    }
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      touchEndX = e.changedTouches[0].screenX
+      const diff = touchStartX - touchEndX
+      if (Math.abs(diff) > 50) {
+        navigate(diff > 0 ? 1 : -1)
+      }
+    }
+
+    window.addEventListener('touchstart', handleTouchStart)
+    window.addEventListener('touchend', handleTouchEnd)
+    return () => {
+      window.removeEventListener('touchstart', handleTouchStart)
+      window.removeEventListener('touchend', handleTouchEnd)
+    }
+  }, [navigate])
+
+  return (
+    <div className="relative w-full h-screen overflow-hidden">
+      {/* Progress bar */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-white/10 z-50">
+        <motion.div
+          className="h-full bg-gradient-to-r from-mmgy-red to-mmgy-red-light"
+          initial={{ width: 0 }}
+          animate={{ width: `${((currentSlide + 1) / totalSlides) * 100}%` }}
+          transition={{ duration: 0.3, ease: smoothEase }}
+        />
+      </div>
+
+      {/* Slide content */}
+      <AnimatePresence initial={false} custom={direction} mode="popLayout">
+        <motion.div
+          key={currentSlide}
+          custom={direction}
+          variants={slideVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          className="absolute inset-0 will-change-transform"
+        >
+          {children[currentSlide]}
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Slide dots */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-50">
+        {children.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              index === currentSlide
+                ? 'bg-mmgy-red w-6 dot-pulse'
+                : 'bg-white/30 hover:bg-white/50'
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* Slide counter */}
+      <div className="absolute bottom-4 right-6 text-white/40 text-sm font-body z-50">
+        {currentSlide + 1} / {totalSlides}
+      </div>
+    </div>
+  )
+}
