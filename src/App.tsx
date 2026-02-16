@@ -32,7 +32,7 @@ function App() {
           SESSION 1 — THE WEBSITE FROM 2030
           ============================================================ */}
 
-      {/* 2 */}
+      {/* 2 — Session 1 Divider */}
       <DividerSlide
         title="The Website From 2030"
         headerOne="Session 1 — 75 minutes"
@@ -42,7 +42,7 @@ function App() {
         variant="dark"
       />
 
-      {/* 3 */}
+      {/* 3 — The Premise */}
       <QuoteSlide
         quote="Build me the most advanced destination platform on earth. What would it do? What would it feel like?"
         highlightWords={['most advanced destination platform']}
@@ -73,7 +73,7 @@ function App() {
         title="AI Agents Are First-Class Visitors"
         bullets={[
           'By 2030, a huge chunk of "visitors" are autonomous AI agents booking trips on behalf of humans.',
-          'The site has two front doors: one for people (emotional, inspirational), one for machines (structured data, availability feeds, preference-matching APIs).',
+          'The site has two front doors: one for people (emotional, inspirational), one for machines (structured data, availability feeds, preference-matching APIs). robost.txt vs llms.txt',
           'The platform serves a completely different experience layer to these agents — while the human-facing layer stays untouched.',
         ]}
       />
@@ -156,6 +156,7 @@ function App() {
       {/* 13 — Delivery Team of 2030 */}
       <SplitImageContentSlide
         headline="The Delivery Team of 2030"
+        subhead="Operating a Living Platform"
         body="If Horizon is a living organism that learns and evolves continuously, the team can't operate like a traditional agency. The model looks more like a product team running a SaaS platform — always on, always optimizing."
         image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=900&fit=crop"
         imagePosition="right"
@@ -176,6 +177,8 @@ function App() {
 
       {/* 15 — Three Work Lanes */}
       <NumberedColumnsSlide
+        title="Three Work Lanes"
+        description="A living platform needs three parallel workstreams, each with its own rhythm and staffing model."
         columns={[
           {
             number: '01',
@@ -201,8 +204,16 @@ function App() {
       {/* 16 — Critical New Roles */}
       <StatHighlightSlide
         stat="5"
-        headline="Critical New Roles"
-        description="Prompt engineers who understand brand voice. Data analysts for behavioral personalization. QA specialists for AI output accuracy. A shared platform engineering team. Brand trainers for content calibration."
+        headline="Potential New Roles"
+        description={
+          <ul className="list-disc list-inside space-y-1">
+            <li><strong>Prompt Engineers</strong> — who understand brand voice</li>
+            <li><strong>Data Analysts</strong> — for behavioral personalization</li>
+            <li><strong>QA Specialists</strong> — for AI output accuracy</li>
+            <li><strong>Platform Engineering Team</strong> — shared across clients</li>
+            <li><strong>Brand Trainers</strong> — for content calibration</li>
+          </ul>
+        }
         variant="light"
       />
 
@@ -214,36 +225,88 @@ function App() {
       />
 
       {/* 18 — The Return Visit */}
+      <SplitImageContentSlide
+        headline="The Return Visit"
+        subhead="Is a Completely Different Experience"
+        body={`Most destination sites treat every visit like the first one — same hero, same "Discover Fort Myers" headline, same generic beach photo. By 2030, a returning visitor should never see a homepage. They should see their page. "Welcome back — still thinking about Sanibel Island?" Contextual, not generic. "Pick up where you left off" with the 2–3 pieces they engaged with most deeply. Reopen the Concierge with full history intact. New content filtered to their demonstrated interests. Real-time social proof — "Trending in Fort Myers" — filtered through their vibe profile.`}
+        image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&h=900&fit=crop"
+        imagePosition="left"
+        variant="dark"
+      />
+
+      {/* 19 — Re-Engagement Module Intro */}
+      <SplitImageContentSlide
+        headline="The Re-Engagement Module"
+        subhead="What Returning Visitors Actually See"
+        body={`The moment we recognize a returning session — persistent ID with consent, or even session-based signals like a referral from a CRM email — the hero dissolves into a personalized re-engagement module. No generic homepage. No "Discover Fort Myers" for the fifth time. Their page, built from their history.`}
+        image="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=1200&h=900&fit=crop"
+        imagePosition="right"
+        variant="dark"
+      />
+
+      {/* 20 — Re-Engagement: First Three Modules */}
       <BulletListSlide
-        title="The Return Visit"
+        title="Re-Engagement Modules - Part 1"
         bullets={[
-          '"Welcome back — still thinking about Sanibel Island?" Contextual, not generic.',
-          '"Pick up where you left off" — the 2–3 pieces they engaged with most deeply.',
-          '"Your conversation, continued" — reopen the Concierge with full history intact.',
-          '"Since you were here" — new content filtered to their demonstrated interests.',
-          '"Trending in Fort Myers" — real-time social proof filtered through their vibe profile.',
+          '"Welcome back" — not generic, but contextual. "Still thinking about Sanibel Island?" based on where they spent the most dwell time last session.',
+          '"Pick up where you left off" — a compact card strip showing the 2–3 pieces they engaged with most deeply (scrolled past 60%, spent 30+ seconds, clicked into details). Each card has a clear CTA: "Keep exploring," "See availability," "Add to your trip."',
+          '"Your conversation, continued" — if they used the Concierge last time, surface the last exchange with a prompt to reopen it. "You asked about waterfront dining for four — want to see what\'s available this weekend?" One tap reopens with full history intact.',
         ]}
       />
 
-      {/* 19 — Brochure to Concierge */}
+      {/* 21 — Re-Engagement: Next Three Modules */}
+      <BulletListSlide
+        title="Re-Engagement Modules - Part 2"
+        bullets={[
+          '"Since you were here" — content published or updated since their last visit, filtered to demonstrated interests. A new restaurant opened in the neighborhood they were browsing? A deal dropped on the hotel they looked at? Surface it here.',
+          '"Trending in Fort Myers" — real-time social proof showing what others are searching, saving, and booking right now. Filtered through their vibe profile — a foodie sees trending restaurants, an adventure seeker sees trending outdoor activities.',
+          '"Your trip so far" — if they\'ve saved favorites or started building an itinerary, show it as a living artifact right on the page with a clear "Continue planning" action.',
+        ]}
+      />
+
+      {/* 22 — Homepage Replacement Principle */}
+      <QuoteSlide
+        quote="This isn't a modal or a banner interrupting the normal homepage — it replaces the homepage entirely. The traditional homepage is a fallback. For anyone we recognize, the entry point is a personalized dashboard that respects the time they've already invested."
+        highlightWords={['replaces the homepage entirely']}
+        variant="dark"
+      />
+
+      {/* 23 — Consent Incentive */}
       <StatHighlightSlide
-        stat="1 → 5"
-        headline="From Brochure to Concierge"
-        description="Visit 1 is a brochure. Visit 2 is a conversation. Visit 5 is a concierge who knows your name. The return visit isn't a repeat — it's a completely different product."
+        stat=""
+        headline="The Consent Incentive"
+        description={
+          <ul className="list-disc list-inside space-y-1">
+            <li><strong>First visit</strong> — great generic experience</li>
+            <li><strong>Second visit without consent</strong> — a little with session signals, but it resets</li>
+            <li><strong>Second visit with consent</strong> — "Oh, it remembered everything"</li>
+            <li>That contrast sells the opt-in naturally without a guilt-tripping cookie banner.</li>
+          </ul>
+        }
         variant="red"
       />
 
-      {/* 20 — The Human Layer */}
+      {/* 24 — Relationship Deepening quote */}
+      <QuoteSlide
+        quote="The progression over multiple returns should feel like a relationship deepening — visit one is a brochure, visit two is a conversation, visit five is a concierge who knows your name the feeds you accurate, curated content."
+        highlightWords={['relationship deepening']}
+        variant="dark"
+      />
+
+      {/* 25 — The Human Layer */}
       <SplitImageContentSlide
         headline="The Human Layer"
+        subhead="Peer-to-Peer Community as a Living Data Source"
         body="AI is powerful, but peer trust is irreplaceable. Build a lightweight, frictionless community layer where real visitors contribute in real time — not reviews or forum posts, but micro-interactions that are fast, altruistic, and immediately useful."
         image="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&h=900&fit=crop"
         imagePosition="left"
         variant="dark"
       />
 
-      {/* 21 — Three Tiers of Community */}
+      {/* 26 — Three Tiers of Community */}
       <NumberedColumnsSlide
+        title="Three Tiers of Community"
+        description='Layer peer contributions from effortless to meaningful — each tier builds on the last.  after visiting a location (detected via geofence or post-session prompt), a user can give a quick thumbs-up. No form, no star rating, no text — just a single tap that says "this was worth it."'
         columns={[
           {
             number: '01',
@@ -266,9 +329,9 @@ function App() {
         ]}
       />
 
-      {/* 22 — AI + Humans */}
+      {/* 27 — AI + Humans */}
       <QuoteSlide
-        quote="AI knows the data. Humans know the feeling. Together they create recommendations neither could deliver alone."
+        quote="The vision is a destination platform where AI and humans collaborate — the AI knows the data, the humans know the feeling, and together they create recommendations that neither could deliver alone."
         highlightWords={['AI', 'Humans']}
         variant="dark-image"
         image="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1200&h=900&fit=crop"
@@ -278,7 +341,7 @@ function App() {
           SESSION 2 — THERE IS NO SUCH THING AS AN ORIGINAL IDEA
           ============================================================ */}
 
-      {/* 23 */}
+      {/* 28 — Session 2 Divider */}
       <DividerSlide
         title="There Is No Such Thing as an Original Idea"
         headerOne="Session 2 — 90 minutes"
@@ -286,7 +349,7 @@ function App() {
         variant="light"
       />
 
-      {/* 24 — Spotify */}
+      {/* 29 — Spotify */}
       <BulletListSlide
         title="Spotify"
         bullets={[
@@ -296,7 +359,7 @@ function App() {
         ]}
       />
 
-      {/* 25 — Netflix */}
+      {/* 30 — Netflix */}
       <SplitImageContentSlide
         headline="Netflix"
         body="Netflix doesn't have a 'recommendations section.' The entire interface is personalized — row order, artwork, category labels. Two people see completely different apps. Every pixel of Horizon should be a personalization decision, not a widget bolted onto a static page."
@@ -305,7 +368,7 @@ function App() {
         variant="dark"
       />
 
-      {/* 26 — Airbnb */}
+      {/* 31 — Airbnb */}
       <BulletListSlide
         title="Airbnb"
         bullets={[
@@ -317,6 +380,8 @@ function App() {
 
       {/* 27 — Duolingo */}
       <NumberedColumnsSlide
+        title="Duolingo"
+        description="The gold standard for turning repetitive tasks into daily habits through behavioral design."
         columns={[
           {
             number: '01',
@@ -406,6 +471,8 @@ function App() {
 
       {/* 35 — Delegate vs Protect */}
       <NumberedColumnsSlide
+        title="Delegate vs. Protect"
+        description="Not all work requires senior talent. Draw a clear line between what can scale through delegation and what must stay close to architecture."
         columns={[
           {
             number: '01',
@@ -424,6 +491,8 @@ function App() {
 
       {/* 36 — Four Architecture Options */}
       <NumberedColumnsSlide
+        title="Four Architecture Options"
+        description="Each option trades off speed, uniqueness, and scalability differently. They're not mutually exclusive — they're a progression."
         columns={[
           {
             number: 'A',

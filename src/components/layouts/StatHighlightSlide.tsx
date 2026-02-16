@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import { Slide } from '../core/Slide'
 import { fadeUp, fadeIn, scaleIn } from '../../utils/animations'
@@ -5,7 +6,7 @@ import { fadeUp, fadeIn, scaleIn } from '../../utils/animations'
 interface StatHighlightSlideProps {
   stat: string
   headline: string
-  description: string
+  description: ReactNode
   image?: string
   variant?: 'light' | 'red'
 }
@@ -87,7 +88,7 @@ export function StatHighlightSlide({
           />
 
           {/* Description */}
-          <motion.p
+          <motion.div
             variants={fadeUp}
             custom={0.45}
             className={`text-sm leading-relaxed ${
@@ -95,7 +96,7 @@ export function StatHighlightSlide({
             }`}
           >
             {description}
-          </motion.p>
+          </motion.div>
         </div>
       </div>
     </Slide>

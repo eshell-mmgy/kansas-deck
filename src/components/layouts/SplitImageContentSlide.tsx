@@ -4,6 +4,7 @@ import { fadeUp, fadeIn } from '../../utils/animations'
 
 interface SplitImageContentSlideProps {
   headline: string
+  subhead?: string
   body: string
   image: string
   imagePosition?: 'left' | 'right'
@@ -12,6 +13,7 @@ interface SplitImageContentSlideProps {
 
 export function SplitImageContentSlide({
   headline,
+  subhead,
   body,
   image,
   imagePosition = 'left',
@@ -42,13 +44,23 @@ export function SplitImageContentSlide({
       <motion.h2
         variants={fadeUp}
         custom={0.2}
-        className={`font-display font-bold uppercase leading-[0.9] mb-6 ${
+        className={`font-display font-bold uppercase leading-[0.9] ${subhead ? 'mb-3' : 'mb-6'} ${
           isDark ? 'text-white' : 'text-mmgy-black'
         }`}
         style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}
       >
         {headline}
       </motion.h2>
+
+      {subhead && (
+        <motion.p
+          variants={fadeUp}
+          custom={0.28}
+          className={`text-base uppercase tracking-widest font-body mb-6 text-mmgy-red`}
+        >
+          {subhead}
+        </motion.p>
+      )}
 
       <motion.p
         variants={fadeUp}

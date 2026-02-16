@@ -3,6 +3,8 @@ import { Slide } from '../core/Slide'
 import { fadeUp, stagger } from '../../utils/animations'
 
 interface NumberedColumnsSlideProps {
+  title?: string
+  description?: string
   columns: Array<{
     number: string
     headline: string
@@ -10,7 +12,7 @@ interface NumberedColumnsSlideProps {
   }>
 }
 
-export function NumberedColumnsSlide({ columns }: NumberedColumnsSlideProps) {
+export function NumberedColumnsSlide({ title, description, columns }: NumberedColumnsSlideProps) {
   return (
     <Slide variant="white" className="relative overflow-hidden">
       {/* Decorative left edge gradient strip */}
@@ -22,33 +24,55 @@ export function NumberedColumnsSlide({ columns }: NumberedColumnsSlideProps) {
 
       <motion.div
         variants={stagger}
-        className="flex w-full h-full items-start pt-20 px-10 md:px-16 pl-8 md:pl-12"
+        className="flex flex-col w-full h-full justify-center px-10 md:px-16 pl-8 md:pl-12"
         style={{ marginLeft: '12px' }}
       >
-        {columns.map((col, index) => (
-          <motion.div
-            key={index}
-            variants={fadeUp}
-            custom={0.15 * index}
-            className="flex-1 px-4 md:px-6"
-          >
-            {/* Number */}
-            <p className="text-mmgy-red font-body text-sm mb-3">{col.number}</p>
-
-            {/* Headline */}
-            <h3
-              className="font-display font-bold text-mmgy-black uppercase leading-[0.95] mb-4"
-              style={{ fontSize: 'clamp(1.25rem, 2.5vw, 2rem)' }}
-            >
-              {col.headline}
-            </h3>
-
-            {/* Description */}
-            <p className="text-mmgy-gray-700 text-sm leading-relaxed">
-              {col.description}
-            </p>
+        {/* Title & Description */}
+        {(title || description) && (
+          <motion.div variants={fadeUp} custom={0} className="mb-10">
+            {title && (
+              <h2
+                className="font-display font-bold text-mmgy-black uppercase leading-[0.95] mb-3"
+                style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}
+              >
+                {title}
+              </h2>
+            )}
+            {description && (
+              <p className="text-mmgy-gray-700 text-base md:text-lg leading-relaxed max-w-5xl">
+                {description}
+              </p>
+            )}
           </motion.div>
-        ))}
+        )}
+
+        {/* Columns */}
+        <div className="flex w-full">
+          {columns.map((col, index) => (
+            <motion.div
+              key={index}
+              variants={fadeUp}
+              custom={0.15 * (index + 1)}
+              className="flex-1 px-4 md:px-8 first:pl-0"
+            >
+              {/* Number */}
+              <p className="text-mmgy-red font-body text-base mb-4">{col.number}</p>
+
+              {/* Headline */}
+              <h3
+                className="font-display font-bold text-mmgy-black uppercase leading-[0.95] mb-5"
+                style={{ fontSize: 'clamp(1.5rem, 3vw, 2.5rem)' }}
+              >
+                {col.headline}
+              </h3>
+
+              {/* Description */}
+              <p className="text-mmgy-gray-700 text-base md:text-lg leading-relaxed">
+                {col.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
     </Slide>
   )
