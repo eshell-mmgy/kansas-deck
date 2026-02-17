@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import { Slide } from '../core/Slide'
 import { fadeUp, fadeIn } from '../../utils/animations'
@@ -5,7 +6,7 @@ import { fadeUp, fadeIn } from '../../utils/animations'
 interface SplitImageContentSlideProps {
   headline: string
   subhead?: string
-  body: string
+  body: ReactNode
   image: string
   imagePosition?: 'left' | 'right'
   variant?: 'light' | 'dark'
@@ -62,7 +63,7 @@ export function SplitImageContentSlide({
         </motion.p>
       )}
 
-      <motion.p
+      <motion.div
         variants={fadeUp}
         custom={0.35}
         className={`text-base leading-relaxed ${
@@ -70,7 +71,7 @@ export function SplitImageContentSlide({
         }`}
       >
         {body}
-      </motion.p>
+      </motion.div>
     </div>
   )
 

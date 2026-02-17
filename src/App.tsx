@@ -259,7 +259,7 @@ function App() {
 
       {/* 22 — Homepage Replacement Principle */}
       <QuoteSlide
-        quote="This isn't a modal or a banner interrupting the normal homepage — it replaces the homepage entirely. The traditional homepage is a fallback. For anyone we recognize, the entry point is a personalized dashboard that respects the time they've already invested."
+        quote="This isn't a modal or a banner interrupting the normal homepage — it replaces the homepage entirely."
         highlightWords={['replaces the homepage entirely']}
         variant="dark"
       />
@@ -270,7 +270,7 @@ function App() {
         headline="The Consent Incentive"
         description={
           <ul className="list-disc list-inside space-y-1">
-            <li><strong>First visit</strong> — great generic experience</li>
+            <li><strong>First visit</strong> — generic global experience</li>
             <li><strong>Second visit without consent</strong> — a little with session signals, but it resets</li>
             <li><strong>Second visit with consent</strong> — "Oh, it remembered everything"</li>
             <li>That contrast sells the opt-in naturally without a guilt-tripping cookie banner.</li>
@@ -281,7 +281,7 @@ function App() {
 
       {/* 24 — Relationship Deepening quote */}
       <QuoteSlide
-        quote="The progression over multiple returns should feel like a relationship deepening — visit one is a brochure, visit two is a conversation, visit five is a concierge who knows your name the feeds you accurate, curated content."
+        quote="The progression over multiple returns should feel like a relationship deepening — visit one is a brochure, visit two is a conversation, visit five is a unique, curated experience."
         highlightWords={['relationship deepening']}
         variant="dark"
       />
@@ -369,7 +369,7 @@ function App() {
 
       {/* 27 — AI + Humans */}
       <QuoteSlide
-        quote="The vision is a destination platform where AI and humans collaborate — the AI knows the data, the humans know the feeling, and together they create recommendations that neither could deliver alone."
+        quote="The vision is a collaborative destination platform — the AI knows the data, the humans know the feeling, and together they create recommendations that neither could deliver alone."
         highlightWords={['AI', 'Humans']}
         variant="dark-image"
         image="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1200&h=900&fit=crop"
@@ -396,67 +396,99 @@ function App() {
       />
 
       {/* 29 — Spotify */}
-      <BulletListSlide
-        title="Spotify"
-        bullets={[
-          '"Discover Weekly" doesn\'t feel like an algorithm — it feels like a friend with great taste made you a mixtape.',
-          'Steal: A "Discover Fort Myers" feed blending known vibes with curated surprises. Comfort picks vs. adventurous picks.',
-          'What they miss: Spotify can\'t explain why it recommended something. We can — "Because you loved the waterfront and this chef just opened here."',
-        ]}
+      <SplitImageContentSlide
+        headline="Spotify"
+        subhead="Algorithmic Discovery That Feels Serendipitous"
+        body={
+          <div className="space-y-4">
+            <p><strong className="text-mmgy-red">What they do well:</strong> Spotify's "Discover Weekly" doesn't feel like a recommendation engine; it feels like a friend with great taste made you a mixtape. The magic is in mixing familiar signals with unexpected pulls from adjacent tastes.</p>
+            <p><strong className="text-mmgy-red">What we should steal:</strong> A "Discover Fort Myers" feed that blends your known vibes with curated surprises — and like Spotify's "Daily Mix" vs. "Release Radar," offer different recommendation moods (comfort picks vs. adventurous picks).</p>
+            <p><strong className="text-mmgy-red">What they miss:</strong> Spotify can't explain why it recommended something. We can — "Because you loved the waterfront last time and this place just opened with the same chef."</p>
+          </div>
+        }
+        image="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=1200&h=900&fit=crop"
+        imagePosition="left"
+        variant="dark"
       />
 
       {/* 30 — Netflix */}
       <SplitImageContentSlide
         headline="Netflix"
-        body="Netflix doesn't have a 'recommendations section.' The entire interface is personalized — row order, artwork, category labels. Two people see completely different apps. Every pixel of Horizon should be a personalization decision, not a widget bolted onto a static page."
-        image="https://images.unsplash.com/photo-1574375927938-d5a98e8d7e28?w=1200&h=900&fit=crop"
-        imagePosition="left"
+        subhead="The Entire UI Is a Recommendation"
+        body={
+          <div className="space-y-4">
+            <p><strong className="text-mmgy-red">What they do well:</strong> Netflix doesn't have a "recommendations section." The entire interface is personalized — row order, artwork selection, category labels. Two people see completely different versions of the same app.</p>
+            <p><strong className="text-mmgy-red">What we should steal:</strong> Every feature of a Horizon site should be a personalization decision, not just a "recommended for you" widget bolted onto a static page. Netflix also personalizes the artwork for the same title based on what will appeal to you — we could do the same with hero images for destinations.</p>
+            <p><strong className="text-mmgy-red">What they miss:</strong> It's a passive lean-back experience. Travel planning requires active participation, so we need to blend Netflix-level personalization with interactive trip-building tools.</p>
+          </div>
+        }
+        image="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200&h=900&fit=crop"
+        imagePosition="right"
         variant="dark"
       />
 
       {/* 31 — Airbnb */}
-      <BulletListSlide
-        title="Airbnb"
-        bullets={[
-          'Masterful progressive data collection — search, then dates, then guests, then preferences. Each step makes results better, never a wall of form fields.',
-          'Solved massive trust (stranger\'s home) through design: reviews, host profiles, neighborhood guides, "what to expect" content.',
-          'What they miss: personalization resets between trips. No long-term relationship or evolving taste profile like Spotify builds over years.',
-        ]}
-      />
-
-      {/* 27 — Duolingo */}
-      <NumberedColumnsSlide
-        title="Duolingo"
-        description="The gold standard for turning repetitive tasks into daily habits through behavioral design."
-        columns={[
-          {
-            number: '01',
-            headline: 'Engagement Loops',
-            description:
-              'Turned tedious learning into daily habit through streaks, XP, leagues, and perfectly timed nudges. Their push notifications are famous.',
-          },
-          {
-            number: '02',
-            headline: 'Steal & Improve',
-            description:
-              'Trip planning is multi-session. Build lightweight loops — a planning "streak," vibe evolution tracker, "you\'ve explored 40% of Fort Myers."',
-          },
-          {
-            number: '03',
-            headline: 'Calibrate Carefully',
-            description:
-              'Gamification can feel juvenile if overdone. Travel inspiration should feel exciting, not like homework with a score.',
-          },
-        ]}
-      />
-
-      {/* 28 — Shopify */}
       <SplitImageContentSlide
-        headline="Shopify — The Platform Play"
-        body="Shopify isn't interesting because of any single feature — it turned a complex technical problem into a product anyone can operate. Horizon's moat is becoming the operating system for destination marketing. The admin, training tools, and content workflows must be so intuitive that DMO teams run them without developers."
-        image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=900&fit=crop"
+        headline="Airbnb"
+        subhead="Progressive Disclosure and Trust-Building"
+        body={
+          <div className="space-y-4">
+            <p><strong className="text-mmgy-red">What they do well:</strong> Airbnb is masterful at progressive data collection that doesn't feel like a form. You start by searching, then they gently prompt for dates, then guests, then preferences — each step making results better. They also solved a massive trust problem through design: reviews, host profiles, neighborhood guides, and "what to expect" content.</p>
+            <p><strong className="text-mmgy-red">What we should steal:</strong> Our data collection should follow this pattern — never a wall of form fields, always a natural conversation that makes the experience better at each step. We should also borrow the neighborhood guide concept but make it dynamic and personalized, not static pages.</p>
+            <p><strong className="text-mmgy-red">What they miss:</strong> Airbnb's personalization resets between trips. There's no sense of a long-term relationship or evolving taste profile the way Spotify builds over years.</p>
+          </div>
+        }
+        image="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200&h=900&fit=crop"
+        imagePosition="left"
+        variant="dark"
+      />
+
+      {/* 32 — Duolingo */}
+      <SplitImageContentSlide
+        headline="Duolingo"
+        subhead="Engagement Loops That Create Habits"
+        body={
+          <div className="space-y-4">
+            <p><strong className="text-mmgy-red">What they do well:</strong> Duolingo turned something tedious (language learning) into a daily habit through streaks, XP, leagues, and perfectly timed nudges. Their re-engagement game is absurd — their push notifications are famous for being funny and effective.</p>
+            <p><strong className="text-mmgy-red">What we should steal:</strong> Trip planning is naturally a multi-session activity, but most destination sites treat every visit as isolated. We should build lightweight engagement loops — a trip planning "streak," a vibe evolution tracker, a "you've explored 40% of Fort Myers" progress indicator — that make people want to come back.</p>
+            <p><strong className="text-mmgy-red">What they miss:</strong> Gamification can feel juvenile or manipulative if overdone. We'd need to calibrate the tone carefully — travel inspiration should feel exciting, not like homework with a score.</p>
+          </div>
+        }
+        image="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=900&fit=crop"
         imagePosition="right"
-        variant="light"
+        variant="dark"
+      />
+
+      {/* 33 — Shopify */}
+      <SplitImageContentSlide
+        headline="Shopify"
+        subhead="The Platform Play"
+        body={
+          <div className="space-y-4">
+            <p><strong className="text-mmgy-red">What they do well:</strong> Shopify isn't interesting because of any single feature — it's interesting because it turned a complex technical problem (running an online store) into a product anyone can operate, then built an ecosystem around it (themes, apps, payments, fulfillment).</p>
+            <p><strong className="text-mmgy-red">What we should steal:</strong> Horizon's long-term moat isn't any single feature, it's becoming the operating system for destination marketing. The admin experience, the training tools, the content workflows — these need to be so intuitive that DMO teams can run them without developers.</p>
+            <p><strong className="text-mmgy-red">What they miss:</strong> Shopify stores can feel cookie-cutter. The challenge is making Horizon infinitely customizable on the frontend while keeping the backend standardized — every destination should feel unique, not like a template with different colors.</p>
+          </div>
+        }
+        image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=900&fit=crop"
+        imagePosition="left"
+        variant="dark"
+      />
+
+      {/* 34 — VWVortex */}
+      <SplitImageContentSlide
+        headline="VWVortex"
+        subhead="Community That Creates Careers"
+        body={
+          <div className="space-y-4">
+            <p><strong className="text-mmgy-red">What they did well:</strong> VWVortex became a career incubator — successful people across the automotive industry trace their trajectory back to that community. The magic wasn't the UI or the content. The magic was purpose. People showed up because their knowledge mattered.</p>
+            <p><strong className="text-mmgy-red">What we should steal:</strong> The forum UI model is dead, but the emotional architecture is something the modern web has largely lost. Horizon should capture that energy: micro-contributions that are fast, contextual, and immediately surfaced to the next visitor. The key insight is that the community is the product — not a bolt-on feature.</p>
+            <p><strong className="text-mmgy-red">What they miss:</strong> Forums required enormous time investment with terrible signal-to-noise ratios. Horizon's version should extract the value — peer trust, real-time local knowledge, meaningful contribution — while eliminating the friction. AI becomes the moderator, the curator, and the search engine that forums never had.</p>
+          </div>
+        }
+        image="https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=1200&h=900&fit=crop"
+        imagePosition="right"
+        variant="dark"
       />
 
       {/* 29 — VWVortex */}
@@ -509,9 +541,9 @@ function App() {
       <BulletListSlide
         title="AI Changes the Economics"
         bullets={[
-          'A senior dev prompts Opus with schema + design tokens + brand brief and gets production-quality pages in minutes, not hours.',
-          'Invest in: robust design token system, library of proven layout patterns, quality gates for accessibility and performance.',
-          'Replace "component library" with a "generation playbook" — documented prompts, patterns, and standards.',
+          'A senior dev prompts Opus with schema + design tokens + brand brief and rapidly gets generated production-quality pages without spending hours manually developing.',
+          'Invest in: robust design token system, library of proven layout patterns, minimal baseline UI and quality gates for accessibility and performance.',
+          'Suppliment the "component library" with a "generation playbook" and CLAUDE.MD — documented prompts, patterns, and standards.',
         ]}
       />
 
@@ -537,42 +569,28 @@ function App() {
 
       {/* 36 — Four Architecture Options */}
       <NumberedColumnsSlide
-        title="Four Architecture Options"
-        description="Each option trades off speed, uniqueness, and scalability differently. They're not mutually exclusive — they're a progression."
+        title="Three Architecture Options"
+        description="Each option trades off speed, uniqueness, and scalability differently. They're not mutually exclusive — rather a catalyst for discussion around progression."
         columns={[
           {
-            number: 'A',
-            headline: 'Shared Components',
+            number: 'OPTION A',
+            headline: 'White Label Solution',
             description:
-              'Single monorepo, themed per client. Max reuse, but every destination looks similar. Best for 30+ clients at speed.',
+              'Single monorepo with a full, in-tact soltion. UI to be altered per client. Offers max reuse, but every destination looks somewhat similar. Best for 10+ clients at speed with minimal design variation.',
           },
           {
-            number: 'B',
+            number: 'OPTION B',
             headline: 'Shared Data + Bespoke UI',
             description:
-              'Standardize data layer. Visual layer built fresh per client. Every destination feels unique and premium. The sweet spot.',
+              'Standardized data layer. Visual layer built fresh per client leaning on a lean white label component library. Every destination feels unique and premium. The sweet spot.',
           },
           {
-            number: 'C',
+            number: 'OPTION C',
             headline: 'AI-Generated + Curated',
             description:
-              'Option B taken further. AI generates presentation from brand brief + tokens. Senior engineer curates. Dramatically faster.',
-          },
-          {
-            number: 'D',
-            headline: 'Module Marketplace',
-            description:
-              'Internal marketplace of self-contained modules. Non-devs can assemble. Long-term vision — Year 3+ once patterns stabilize.',
+              'Option B taken further. AI generates presentation from brand brief + tokens. Senior engineer curates and documents. Delivery team executes with Claude in hand. Dramatically faster with more brand/design flexability.',
           },
         ]}
-      />
-
-      {/* 37 — The Sweet Spot */}
-      <StatHighlightSlide
-        stat="B → C"
-        headline="The Sweet Spot"
-        description="Start with Option B — shared data layer, bespoke presentation. Evolve to C as AI matures. Invest in making invisible layers rock-solid. Let visible layers be creative and unique per destination."
-        variant="red"
       />
 
       {/* 38 — Recommended Path */}
@@ -594,13 +612,13 @@ function App() {
             number: 3,
             date: 'Clients 5–10',
             description:
-              'Extract stabilized modules into a composable marketplace. Start with auth, search, Concierge, CRM.',
+              'Onboard a delivery team and split responsibilites between client development, ongoing maintenance and platform engineering'
           },
           {
             number: 4,
             date: 'Year 3+',
             description:
-              'Module marketplace matures. New clients assembled from proven modules + AI-generated custom + small hand-built bespoke.',
+              'Team leads control the playbook and the platform roadmap. The playbook evolves into a delivery team master tool rapidly creating robust, unique experience within the shared data and AI infrastructure.',
           },
         ]}
       />

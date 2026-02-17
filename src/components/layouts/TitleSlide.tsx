@@ -30,7 +30,7 @@ export function TitleSlide({
           <div className="relative w-full h-[85%]">
             {/* Red border frame */}
             <div
-              className="absolute inset-0 clip-pentagon"
+              className="absolute top-6 left-8 inset-0 clip-pentagon"
               style={{
                 background: '#E63312',
                 padding: '3px',
