@@ -140,23 +140,36 @@ export function SlideContainer({ children }: SlideContainerProps) {
         </motion.div>
       </AnimatePresence>
 
-      {/* Slide dots */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-50">
+      {/* Slide dots — inactive layer with blend */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-50 mix-blend-difference">
         {children.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
               index === currentSlide
-                ? 'bg-mmgy-red w-6 dot-pulse'
+                ? 'bg-transparent w-6'
                 : 'bg-white/30 hover:bg-white/50'
+            }`}
+          />
+        ))}
+      </div>
+      {/* Slide dots — active dot without blend */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-50 pointer-events-none">
+        {children.map((_, index) => (
+          <div
+            key={index}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              index === currentSlide
+                ? 'bg-mmgy-red w-6 dot-pulse'
+                : 'bg-transparent'
             }`}
           />
         ))}
       </div>
 
       {/* Slide counter */}
-      <div className="absolute bottom-4 right-6 text-white/40 text-sm font-body z-50">
+      <div className="absolute bottom-4 right-6 text-white/40 text-sm font-body z-50 mix-blend-difference">
         {currentSlide + 1} / {totalSlides}
       </div>
     </div>

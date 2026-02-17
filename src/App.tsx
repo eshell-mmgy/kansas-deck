@@ -246,18 +246,11 @@ function App() {
 
       {/* 20 — Re-Engagement: First Three Modules */}
       <BulletListSlide
-        title="Re-Engagement Modules - Part 1"
+        title="Engagement Paths"
         bullets={[
           '"Welcome back" — not generic, but contextual. "Still thinking about Sanibel Island?" based on where they spent the most dwell time last session.',
           '"Pick up where you left off" — a compact card strip showing the 2–3 pieces they engaged with most deeply (scrolled past 60%, spent 30+ seconds, clicked into details). Each card has a clear CTA: "Keep exploring," "See availability," "Add to your trip."',
           '"Your conversation, continued" — if they used the Concierge last time, surface the last exchange with a prompt to reopen it. "You asked about waterfront dining for four — want to see what\'s available this weekend?" One tap reopens with full history intact.',
-        ]}
-      />
-
-      {/* 21 — Re-Engagement: Next Three Modules */}
-      <BulletListSlide
-        title="Re-Engagement Modules - Part 2"
-        bullets={[
           '"Since you were here" — content published or updated since their last visit, filtered to demonstrated interests. A new restaurant opened in the neighborhood they were browsing? A deal dropped on the hotel they looked at? Surface it here.',
           '"Trending in Fort Myers" — real-time social proof showing what others are searching, saving, and booking right now. Filtered through their vibe profile — a foodie sees trending restaurants, an adventure seeker sees trending outdoor activities.',
           '"Your trip so far" — if they\'ve saved favorites or started building an itinerary, show it as a living artifact right on the page with a clear "Continue planning" action.',
@@ -309,24 +302,69 @@ function App() {
         description='Layer peer contributions from effortless to meaningful — each tier builds on the last.  after visiting a location (detected via geofence or post-session prompt), a user can give a quick thumbs-up. No form, no star rating, no text — just a single tap that says "this was worth it."'
         columns={[
           {
-            number: '01',
+            number: 'TIER 1',
             headline: 'Thumbs-Up Economy',
             description:
               'One tap — "this was worth it." Aggregates into real-time social proof. "23 visitors gave this a thumbs-up this week."',
           },
           {
-            number: '02',
+            number: 'TIER 2',
             headline: 'Micro-Reviews',
             description:
               'Short, casual — "Their smash burger was amazing!" Surfaced contextually, weighted by freshness. Two hours old = gold.',
           },
           {
-            number: '03',
+            number: 'TIER 3',
             headline: 'Contributor Identity',
             description:
               '"You\'ve helped 47 travelers find great spots." Genuine recognition without gamification. Five seconds, someone benefits tonight.',
           },
         ]}
+      />
+
+      {/* Tier 1 — Thumbs-Up Economy */}
+      <StatHighlightSlide
+        stat="TIER 1"
+        headline="The Thumbs-Up Economy"
+        description={
+          <ul className="list-disc list-inside space-y-1">
+            <li>After visiting a location (detected via geofence or post-session prompt), one tap: "this was worth it." No form, no star rating, no text.</li>
+            <li>Search results show <strong>"23 visitors gave this a thumbs-up this week"</strong></li>
+            <li>The Concierge mentions <strong>"this spot has been getting a lot of love lately"</strong> when recommending</li>
+            <li>A returning user's "Since you were here" section highlights newly popular spots based on peer signal, not just editorial content</li>
+          </ul>
+        }
+        variant="light"
+      />
+
+      {/* Tier 2 — Micro-Reviews */}
+      <StatHighlightSlide
+        stat="TIER 2"
+        headline="Micro-Reviews That Feel Like Texting a Friend"
+        description={
+          <ul className="list-disc list-inside space-y-1">
+            <li>Short, casual sentences — not formal reviews. <strong>"Their smash burger was amazing!"</strong> or <strong>"Get the sunset table on the second floor."</strong></li>
+            <li>Surfaced contextually: "Another visitor said 2 hours ago: 'Their smash burger was amazing!'"</li>
+            <li>The Concierge weaves peer quotes into recommendations naturally: <strong>"Visitors this week are raving about the waterfront patio"</strong></li>
+            <li>Recency matters — a tip from two hours ago is gold; six months ago is stale. The platform weights freshness heavily.</li>
+          </ul>
+        }
+        variant="red"
+      />
+
+      {/* Tier 3 — Contributor Identity */}
+      <StatHighlightSlide
+        stat="TIER 3"
+        headline="Contributor Identity & Meaningful Purpose"
+        description={
+          <ul className="list-disc list-inside space-y-1">
+            <li><strong>"You've helped 47 travelers find great spots in Fort Myers."</strong> Genuine recognition — not gamification for its own sake.</li>
+            <li>Must remain lightweight and unsolicited. The moment it feels like Yelp — with pressure to write detailed reviews or compete for badges — it loses its magic.</li>
+            <li>Interaction model: you had a great time, you want to pay it forward, it takes five seconds, someone benefits tonight.</li>
+            <li>Every peer interaction is a data signal — thumbs-ups feed the recommendation engine, micro-reviews train the Concierge, contribution patterns reveal which locations are delivering and which are slipping.</li>
+          </ul>
+        }
+        variant="light"
       />
 
       {/* 27 — AI + Humans */}
@@ -335,6 +373,14 @@ function App() {
         highlightWords={['AI', 'Humans']}
         variant="dark-image"
         image="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1200&h=900&fit=crop"
+      />
+
+            {/* 27 — AI + Humans */}
+      <QuoteSlide
+        quote='How do we create this higher level of personalization, brand loyalty and peer contribution without a mobile app?'
+        highlightWords={['mobile app']}
+        variant="dark-image"
+        image="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=900&fit=crop"
       />
 
       {/* ============================================================
